@@ -3,6 +3,11 @@
     padding:0;
     box-sizing: border-box;
     letter-spacing: .4px;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
 }
 
 @font-face {
@@ -214,14 +219,6 @@ body.light div.top-part{
     justify-content: space-between;
     padding: 1.7rem 2rem;
     position: relative;
-}
-
-.others-container  *{    
-    transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
 }
 
 .others-container > p{
