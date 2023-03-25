@@ -8,9 +8,7 @@ function App() {
   const [todoArray, setTodoArray] = useState([])
   const [showAll, setShowAll] = useState(true)
   const [todoBeingTyped, setTodoBeingTyped] = useState("")
-  const [activeTodos, setActiveTodos] = useState([])
   const [showActive, setShowActive] = useState(false)
-  const [completedTodos, setCompletedTodos] = useState([])
   const [showCompleted, setShowCompleted] = useState(false)
 
   const mappedTodos = todoArray.map((todo)=>{
@@ -24,8 +22,9 @@ function App() {
     />
   })
 
-  const mappedActiveTodos = activeTodos.map((todo)=>{
-    return <Todo 
+  const mappedActiveTodos = todoArray.map((todo)=>{
+    if (todo.completed == false) {
+      return <Todo 
     key={todo.id}
     id={todo.id}
     value = {todo.value}
@@ -33,10 +32,13 @@ function App() {
     setTodoArray = {setTodoArray}
     todoArray = {todoArray}
     />
+    }
+    
   })
 
-  const mappedCompletedTodos = completedTodos.map((todo)=>{
-    return <Todo 
+  const mappedCompletedTodos = todoArray.map((todo)=>{
+    if (todo.completed == true) {
+      return <Todo 
     key={todo.id}
     id={todo.id}
     value = {todo.value}
@@ -44,6 +46,8 @@ function App() {
     setTodoArray = {setTodoArray}
     todoArray = {todoArray}
     />
+    }
+    
   })
 
   function createNewTodo(todo, e){
@@ -63,8 +67,6 @@ function App() {
   }
 
   function showActiveTodos(){
-    const activeTodosArray = todoArray.filter((todo) => todo.completed == false)
-    setActiveTodos(activeTodosArray)
     setShowAll(false)
     setShowCompleted(false)
     setShowActive(true)
@@ -77,8 +79,6 @@ function App() {
   }
 
   function showCompletedTodos(){
-    const completedTodosArray = todoArray.filter((todo) => todo.completed !== false)
-    setCompletedTodos(completedTodosArray)
     setShowAll(false)
     setShowActive(false)
     setShowCompleted(true)
