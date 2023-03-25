@@ -28,13 +28,12 @@ html{
     --brightBlue: hsl(220, 98%, 61%);
 --checkBackground:hsl(192, 100%, 67%), hsl(280, 87%, 65%);
 
-/* light mode
 
 --veryLightGray: hsl(0, 0%, 98%);
 --veryLightGrayishBlue: hsl(236, 33%, 92%);
 --lightGrayishBlue: hsl(233, 11%, 84%);
 --darkGrayishBlue: hsl(236, 9%, 61%);
---veryDarkGrayishBlue: hsl(235, 19%, 35%); */
+--veryDarkGrayishBlue: hsl(235, 19%, 35%); 
 
 /* dark mode */
 
@@ -52,7 +51,7 @@ main{
     grid-template-rows: 20rem auto;
 }
 
-div.top-part{
+body.dark div.top-part{
     background-image: url("./assets/bg-mobile-dark.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -128,8 +127,10 @@ div.top-part{
     -ms-border-radius: .5rem;
     -o-border-radius: .5rem;
     background-color: var(--veryDarkDesaturatedBlue);
-    color:var(--lightGrayishBlue)
+    color:var(--lightGrayishBlue);
+    box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.185);
 }
+
 
 .todo-container .circle{
     width:2rem ;
@@ -224,6 +225,7 @@ div.top-part{
     -moz-border-radius: .5rem;
     -ms-border-radius: .5rem;
     -o-border-radius: .5rem;
+    box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.185);
 }
 
 .todo-state::after{
@@ -260,19 +262,18 @@ div.bottom-part{
     background-color: var(--veryDarkBlue);
 }
 
-input.check::after{
-    content: "";
-    width:100%;
-    height:100%;
-    background-color: red;
-    position: absolute;
-    top:0;
-    right:0;    
-}
 
 @media screen and (min-width:600px) {
-    div.top-part{
+    body.dark div.top-part{
         background-image: url("./assets/bg-desktop-dark.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 3rem 0 0 0;
+        height:20rem;
+    }
+
+    body.light div.top-part{
+        background-image: url("./assets/bg-desktop-light.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         padding: 3rem 0 0 0;
@@ -299,4 +300,52 @@ input.check::after{
         -ms-border-radius: 0rem;
         -o-border-radius: 0rem;
 }
+}
+
+/* light mode */
+body.light div.top-part{
+    background-image: url("./assets/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3rem 0 0 0;
+    height:20rem;
+}
+
+body.light .input-container{
+    background-color: var(--veryLightGray);
+    color:var(--veryDarkGrayishBlue);
+}
+
+body.light .input-container .circle{
+    border: 1px solid  hsla(0, 0%, 19%, 0.486);
+}
+
+body.light input{
+    color: var(--veryDarkGrayishBlue);
+}
+
+body.light .todo-and-other-container{
+     background-color: var(--veryLightGray);
+    color:var(--veryDarkGrayishBlue);
+}
+
+body.light .todo-container .circle:not(.todo.completed .circle){
+    border: 1px solid  hsla(0, 0%, 19%, 0.212);
+}
+
+body.light .todo{
+    border-bottom: 1px solid  hsla(0, 0%, 21%, 0.123);
+}
+
+body.light .todo > p{
+    color: var(--veryDarkGrayishBlue);
+}
+
+body.light .todo-state{
+    background-color: var(--veryLightGray);
+    color:var(--veryDarkBlue);
+}
+
+body.light div.bottom-part{
+    background-color: var(--veryLightGrayishBlue);
 }
