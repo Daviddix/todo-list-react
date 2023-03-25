@@ -1,0 +1,301 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    letter-spacing: .4px;
+}
+
+@font-face {
+    font-family: j-sans-regular;
+    src: url("./assets/josefin-sans/JosefinSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: j-sans-semi-bold;
+    src: url("./assets/josefin-sans/JosefinSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: j-sans-bold;
+    src: url("./assets/josefin-sans/JosefinSans-Bold.ttf");
+}
+
+html{
+    font-size: 62.5%;
+}
+
+:root{
+    --brightBlue: hsl(220, 98%, 61%);
+--checkBackground:hsl(192, 100%, 67%), hsl(280, 87%, 65%);
+
+/* light mode
+
+--veryLightGray: hsl(0, 0%, 98%);
+--veryLightGrayishBlue: hsl(236, 33%, 92%);
+--lightGrayishBlue: hsl(233, 11%, 84%);
+--darkGrayishBlue: hsl(236, 9%, 61%);
+--veryDarkGrayishBlue: hsl(235, 19%, 35%); */
+
+/* dark mode */
+
+--veryDarkBlue: hsl(235, 21%, 11%);
+--veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+--lightGrayishBlue: hsl(234, 39%, 85%);
+--lightGrayishBlueHover: hsl(236, 33%, 92%);
+--darkGrayishBlue: hsl(234, 11%, 52%);
+--veryDarkGrayishBlue: hsl(233, 14%, 35%);
+--veryDarkGrayishBlue: hsl(237, 14%, 26%);
+}
+
+main{
+    display: grid;
+    grid-template-rows: 20rem auto;
+}
+
+div.top-part{
+    background-image: url("./assets/bg-mobile-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3rem 0 0 0;
+    height:20rem;
+}
+
+.top-part .header{
+    width:90%;
+    max-width: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto auto 3rem;
+}
+
+.header .logo{
+    color:white;
+    font-size: 2rem;
+    letter-spacing: 1rem;
+    font-family: j-sans-bold;
+}
+
+.header .theme img{
+    max-width: 2rem;
+}
+
+.main-content .input-container{
+    width:90%;
+    max-width: 60rem;
+    display: block;
+    margin: auto auto 2rem;
+    padding: 1.2rem;
+    border: none;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    font-family: j-sans-regular;
+    font-weight: 400;
+    background-color: var(--veryDarkDesaturatedBlue);
+    color:var(--lightGrayishBlue);    
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+}
+
+.input-container .circle{
+    width:2rem ;
+    height:2rem ;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid  hsla(234, 39%, 85%, 0.158);
+}
+
+.input-container input{
+    background-color: transparent;
+    border:none;
+    color:hsl(0, 0%, 80%);
+    font-size: 1.6rem;
+    letter-spacing: .4px;
+    font-family: j-sans-regular;
+    font-weight: 800;
+}
+
+.todo-and-other-container{
+    width:90%;
+    max-width: 60rem;
+    margin: auto;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    background-color: var(--veryDarkDesaturatedBlue);
+    color:var(--lightGrayishBlue)
+}
+
+.todo-container .circle{
+    width:2rem ;
+    height:2rem ;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.todo.completed .circle{
+    background: url("./assets/icon-check.svg"),
+    linear-gradient(var(--checkBackground));
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo.completed > p{
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.todo-container .circle:not(.todo.completed .circle){
+    width:2rem ;
+    height:2rem ;
+    border: 1px solid  hsla(234, 39%, 85%, 0.158);
+    border-radius: 50%;
+}
+
+.todo-container .todo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 2rem;
+    border-bottom: 1px solid  hsla(234, 39%, 85%, 0.158);
+}
+
+.todo > p{
+    color:hsl(0, 0%, 80%);
+    flex:1;
+    margin: 0 0 0 2rem;
+    font-size: 1.6rem;
+    letter-spacing: .4px;
+    font-family: j-sans-regular;
+    font-weight: 800;
+}
+
+.todo .delete{
+    max-width: 1.4rem;
+    display: none;
+}
+
+.todo:hover .delete{
+    display: block;
+    cursor: pointer;
+}
+
+.others-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.7rem 2rem;
+    position: relative;
+}
+
+.others-container > p{
+    font-family: j-sans-regular;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color:var(--darkGrayishBlue)
+}
+
+.others-container .clear-completed{
+    cursor: pointer;
+}
+
+.others-container .todo-state{
+    position: absolute;
+    padding: 1rem;
+    border-radius: .5rem;
+    bottom:-6rem;
+    background-color: var(--veryDarkDesaturatedBlue);
+    width:100%;
+    left:50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.todo-state::after{
+    content: "Drag and drop to reorder list";
+    position: absolute;
+    bottom:-5rem;
+    font-size:1.2rem;
+    font-size: 1.5rem;
+    font-family: j-sans-regular;
+    font-weight: 800;
+}
+
+.todo-state p{
+    font-size: 1.5rem;
+    font-family: j-sans-regular;
+    font-weight: 900;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.todo-state p.active{
+    color:var(--brightBlue);
+    opacity: 1;
+}
+
+.todo-state p:not(:last-of-type){
+    margin-right: 2rem;
+}
+
+div.bottom-part{
+    height:calc(100vh - 20rem);
+    z-index: -1;
+    background-color: var(--veryDarkBlue);
+}
+
+input.check::after{
+    content: "";
+    width:100%;
+    height:100%;
+    background-color: red;
+    position: absolute;
+    top:0;
+    right:0;    
+}
+
+@media screen and (min-width:600px) {
+    div.top-part{
+        background-image: url("./assets/bg-desktop-dark.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 3rem 0 0 0;
+        height:20rem;
+    }
+
+    .others-container .todo-state{
+        position: static;
+        padding: 0rem;
+        border-radius: 0rem;
+        bottom:0rem;
+        width:fit-content;
+        left:50%;
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-border-radius: 0rem;
+        -moz-border-radius: 0rem;
+        -ms-border-radius: 0rem;
+        -o-border-radius: 0rem;
+}
+}
