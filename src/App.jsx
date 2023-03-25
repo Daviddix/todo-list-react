@@ -86,10 +86,8 @@ function App() {
 
   return (
     <main>
-      <div className="top-part">
-        
+      <div className="top-part">        
        <Header />
-
       <div 
       className="main-content">
 
@@ -111,7 +109,7 @@ function App() {
           <div className="todo-container">
             { showAll && mappedTodos}       
             { showActive && mappedActiveTodos}       
-            { showCompleted && mappedCompletedTodos}       
+            { showCompleted && mappedCompletedTodos}
           </div>
 
           <div className="others-container">
