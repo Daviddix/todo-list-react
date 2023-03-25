@@ -4,7 +4,7 @@ import sun from "../assets/icon-sun.svg"
 
 
 function Header() {
-  const [icon, setIcon] = useState(moon)
+  const [icon, setIcon] = useState(sun)
   function changeTheme(){
     setIcon(()=> icon == moon? sun : moon)
     document.body.classList.contains("light") ? document.body.classList = "dark" : document.body.classList = "light"

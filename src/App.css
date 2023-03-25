@@ -95,6 +95,10 @@ body.light div.top-part{
     max-width: 2rem;
 }
 
+.header .theme{
+    cursor: pointer;
+}
+
 .main-content .input-container{
     width:90%;
     max-width: 60rem;
@@ -242,17 +246,6 @@ body.light div.top-part{
     -ms-border-radius: .5rem;
     -o-border-radius: .5rem;
     box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.185);
-}
-
-.todo-state::after{
-    content: "Drag and drop to reorder list";
-    position: absolute;
-    bottom:-3rem;
-    font-size:1.2rem;
-    font-size: 1.5rem;
-    font-family: j-sans-regular;
-    font-weight: 800;
-    opacity: .5;
 }
 
 .todo-state p{
