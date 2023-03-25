@@ -113,7 +113,7 @@ function App() {
           </div>
 
           <div className="others-container">
-            <p>{todoArray.length} items left</p> 
+            <p className= "items-left">{todoArray.length} items left</p> 
 
             <div className="todo-state">
 

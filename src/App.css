@@ -135,6 +135,8 @@ body.light div.top-part{
     letter-spacing: .4px;
     font-family: j-sans-regular;
     font-weight: 800;
+    outline: none;
+    caret-color: var(--brightBlue);
 }
 
 .todo-and-other-container{
@@ -214,11 +216,19 @@ body.light div.top-part{
     position: relative;
 }
 
+.others-container  *{    
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
 .others-container > p{
     font-family: j-sans-regular;
     font-weight: 800;
     font-size: 1.3rem;
-    color:var(--darkGrayishBlue)
+    color:var(--darkGrayishBlue);    
 }
 
 .others-container .clear-completed{
@@ -312,6 +322,7 @@ div.bottom-part{
 }
 }
 
+
 /* light mode */
 
 
@@ -352,4 +363,15 @@ body.light .todo-state{
 
 body.light div.bottom-part{
     background-color: var(--veryLightGrayishBlue);
+}
+
+/* hover styles */
+.others-container p:hover:not(.active):not(.items-left){
+    color: var(--lightGrayishBlue);
+    opacity: 1;
+}
+
+body.light .others-container p:hover:not(.active):not(.items-left){
+    color: var(--veryDarkGrayishBlue);
+    opacity: 1;
 }
