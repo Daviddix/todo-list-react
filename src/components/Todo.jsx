@@ -16,6 +16,7 @@ function Todo({value, completed, id, setTodoArray, todoArray}) {
         setCompletedStatus((prev) => !prev)
       }
     })
+    localStorage.setItem("todo-list-data", JSON.stringify(todoArray))
   }
 
   return (

@@ -1,11 +1,12 @@
+import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
 import Header from "./components/Header.jsx"
 import Todo from './components/Todo'
 
 function App() {
-
-  const [todoArray, setTodoArray] = useState([])
+  const [todoArray, setTodoArray] = useState(()=> JSON.parse(localStorage.getItem("todo-list-data")) || [])
   const [showAll, setShowAll] = useState(true)
   const [todoBeingTyped, setTodoBeingTyped] = useState("")
   const [showActive, setShowActive] = useState(false)
@@ -60,6 +61,10 @@ function App() {
     setTodoArray((prev)=>[...prev, newTodoToAdd])
     setTodoBeingTyped("")
   }
+
+  useEffect(()=>{
+    localStorage.setItem("todo-list-data", JSON.stringify(todoArray))
+  }, [todoArray])
 
   function clearCompletedTodos(){
     const clearedTodos = todoArray.filter((todo)=> todo.completed !== true)
